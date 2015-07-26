@@ -1,0 +1,21 @@
+{
+  "name": "basic_authentication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Renato Ramiro",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.13.2",
+    "express": "^4.8.8",
+    "express-load": "^1.1.14",
+    "jsonwebtoken": "^5.0.4",
+    "mongoose": "^4.0.8",
+    "method-override": "^2.1.3"
+  }
+}
