@@ -3,12 +3,16 @@ var bcrypt = require('bcrypt-nodejs');
 var SALT_WORK_FACTOR = bcrypt.genSaltSync(8);
 
 module.exports = function (app) {
+  var Patient = app.models.patient;
+
   var userSchema = new mongoose.Schema({
       name: { type: String, required: true },
       username: { type: String, required: true, unique: true },
       email: { type: String, required: true, unique: true },
       password: { type: String, required: true },
-      createdAt: { type: Date, default: Date.now }
+      createdAt: { type: Date, default: Date.now },
+
+      patients: [Patient]
   });
 
   userSchema.pre('save', function (next) {
