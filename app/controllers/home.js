@@ -22,7 +22,7 @@ module.exports = function (app) {
         if (!user.validPassword(req.body.password)) {
           return res.json({success: false, message: 'Authentication failed. Wrong password.'});
         } else {
-          var token = jwt.sign(user, app.get('secret_string'));
+          var token = jwt.sign({user: user}, app.get('secret_string'), { expiresInMinutes: 1 });
           user.password = undefined;
           return res.json({
             success: true,
